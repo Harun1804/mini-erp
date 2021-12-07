@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthContoller;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AuthContoller::class,'loginPage'])->name('login');
+Route::post('/login',[AuthContoller::class,'login'])->name('login.check');
+Route::get('/logout', [AuthContoller::class,'logout'])->name('logout');
+
+Route::get('home',[UserController::class,'dashboard'])->name('dashboard');
+Route::get('pelanggan',[UserController::class,'pelanggan'])->name('pelanggan');

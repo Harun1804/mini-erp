@@ -9,30 +9,26 @@ class AuthContoller extends Controller
 {
     public function loginPage()
     {
-        # code...
+        return view('login');
     }
 
     public function login(Request $request)
     {
-        $data = [
-            'username' => ['required'],
-            'password' => ['required']
-        ];
-
-        if (Auth::attempt($data)) {
+        if (Auth::attempt(['username' => $request->username,'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+            return redirect()->intended('home');
         }
 
         return back()->withErrors([
-            'username' => 'Data Anda Salah',
+            'username' => 'Data tidak ditemukan',
         ]);
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-        $request->session()->regenerate();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect()->route('login')->with('success','Berhasil Logout');
     }
 }
