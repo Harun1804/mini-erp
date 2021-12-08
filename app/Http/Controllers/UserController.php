@@ -15,4 +15,9 @@ class UserController extends Controller
     {
         return view('pelanggan');
     }
+
+    public function tagihan()
+    {
+        return view('tagihan');
+    }
 }

@@ -16,7 +16,7 @@
                     <a class="nav-link {{ Request::segment(1) == 'pelanggan' ? 'active' : '' }}" href="{{ route('pelanggan') }}">Pelanggan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::segment(1) == 'tagihan' ? 'active' : '' }}" href="#">Tagihan</a>
+                    <a class="nav-link {{ Request::segment(1) == 'tagihan' ? 'active' : '' }}" href="{{ route('tagihan') }}">Tagihan</a>
                 </li>
             </ul>
             <a href="{{ route('logout') }}" class="btn btn-sm btn-warning">Logout</a>

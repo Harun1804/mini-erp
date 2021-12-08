@@ -21,3 +21,4 @@ Route::get('/logout', [AuthContoller::class,'logout'])->name('logout');
 
 Route::get('home',[UserController::class,'dashboard'])->name('dashboard');
 Route::get('pelanggan',[UserController::class,'pelanggan'])->name('pelanggan');
+Route::get('tagihan',[UserController::class,'tagihan'])->name('tagihan');
