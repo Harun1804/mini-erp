@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\DetailTagihan;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Tagihan extends Model
 {
@@ -22,10 +23,12 @@ class Tagihan extends Model
         'kolektor',
         'no_shipment',
         'shiping_point',
-        'total_dokumen',
-        'total_dokumen_kembali',
-        'total_giro',
         'tanggal_posting',
         'status_tagihan'
     ];
+
+    public function detailTagihan()
+    {
+        return $this->hasOne(DetailTagihan::class);
+    }
 }

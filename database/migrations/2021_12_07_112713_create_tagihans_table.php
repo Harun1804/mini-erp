@@ -27,9 +27,6 @@ class CreateTagihansTable extends Migration
             $table->string('kolektor',200);
             $table->string('no_shipment',200);
             $table->string('shiping_point')->nullable();
-            $table->string('total_dokumen',200)->default('0');
-            $table->string('total_dokumen_kembali',200)->default('0');
-            $table->string('total_giro',200)->default('0');
             $table->date('tanggal_posting')->nullable();
             $table->string('status_tagihan',200);
             $table->timestamps();

@@ -16,6 +16,24 @@ class Tagihan extends Component
     public $selectedID;
 
     public $formMode = false,$editMode = false;
+
+    protected $rules = [
+        'daftar_tagihan_type' => 'required',
+        'daftar_tagihan_no' => 'required',
+        'daftar_tagihan_date' => 'required|date',
+        'tanggal_dokumen' => 'required|date',
+        'kode_perusahaan' => 'required',
+        'nama_perusahaan' => 'required',
+        'bisnis_area_kode' => 'required',
+        'bisnis_area' => 'required',
+        'code_kolektor' => 'required',
+        'kolektor' => 'required',
+        'no_shipment' => 'required',
+        'shiping_point' => 'nullable',
+        'tanggal_posting' => 'nullable',
+        'status_tagihan' => 'required',
+    ];
+
     public function render()
     {
         $bills = ModelsTagihan::latest()->get();
@@ -53,6 +71,7 @@ class Tagihan extends Component
 
     public function store()
     {
+        $this->validate();
         ModelsTagihan::create([
             'daftar_tagihan_type' => $this->daftar_tagihan_type,
             'daftar_tagihan_no' => $this->daftar_tagihan_no,
@@ -98,6 +117,7 @@ class Tagihan extends Component
 
     public function update()
     {
+        $this->validate();
         $tagihan = ModelsTagihan::findOrFail($this->selectedID);
         $tagihan->update([
             'daftar_tagihan_type' => $this->daftar_tagihan_type,

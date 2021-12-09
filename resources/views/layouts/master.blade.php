@@ -44,5 +44,7 @@
     </main>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     @livewireScripts
+    @stack('js-vendor')
+    @stack('js-script')
 </body>
 </html>

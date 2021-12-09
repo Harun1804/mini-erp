@@ -39,6 +39,7 @@
                         @forelse ($bills as $bill)
                         <tr>
                             <td>
+                                <a href="{{ route('detail.tagihan',$bill->id) }}" class="btn btn-sm btn-info">Detail</a>
                                 <button type="button" class="btn btn-sm btn-warning" wire:click="edit({{ $bill->id }})">Edit</button>
                                 <button type="button" class="btn btn-sm btn-danger" wire:click="destroy({{ $bill->id }})">Delete</button>
                             </td>
